@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CampusMate Chatbot</title>
+    <style>
+      body{font-family:Arial,Helvetica,sans-serif;margin:20px}
+      #chat{max-width:720px;margin:0 auto}
+      .msg{padding:8px;border-radius:6px;margin:6px 0}
+      .user{background:#e6f7ff;text-align:right}
+      .bot{background:#f1f1f1}
+      #inputRow{display:flex;gap:8px;margin-top:12px}
+      textarea{flex:1;height:70px}
+    </style>
+  </head>
+  <body>
+    <div id="chat">
+      <h1>CampusMate Chatbot</h1>
+      <div id="messages"></div>
+      <div id="inputRow">
+        <div style="flex:1">
+          <textarea id="msg" placeholder="Ask about fees, library, hostel..." style="width:100%"></textarea>
+          <div style="display:flex;gap:12px;align-items:center;margin-top:8px">
+            <label>RAG k: <span id="kVal">5</span></label>
+            <input id="kSlider" type="range" min="1" max="10" value="5" />
+            <label>Temperature: <span id="tVal">0.0</span></label>
+            <input id="tempSlider" type="range" min="0" max="1" step="0.1" value="0.0" />
+          </div>
+        </div>
+        <button id="send">Send</button>
+      </div>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
