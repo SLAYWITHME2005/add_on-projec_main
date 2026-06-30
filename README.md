@@ -1,5 +1,7 @@
 # College FAQ Chatbot (Python-only)
-
+hi we are velocity vector
+myself ayush
+and we had created a campus faq bot
 This repository contains a Python-only FastAPI backend implementing a RAG-based college FAQ chatbot.
 
 Files:
