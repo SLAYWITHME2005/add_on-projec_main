@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin - College FAQ Chatbot</title>
+    <style>
+      body{font-family:Arial,Helvetica,sans-serif;margin:20px}
+      table{width:100%;border-collapse:collapse}
+      td,th{border:1px solid #ddd;padding:8px}
+      th{background:#f7f7f7}
+      textarea{width:100%;height:80px}
+    </style>
+  </head>
+  <body>
+    <h1>Admin - FAQs</h1>
+    <p>Admin API key must be provided in the <code>x-api-key</code> header.</p>
+    <div>
+      <label>API Key: <input id="key" type="password"/></label>
+      <button id="load">Load FAQs</button>
+    </div>
+    <h2>Create FAQ</h2>
+    <div>
+      <input id="q" placeholder="Question" style="width:100%"/>
+      <textarea id="a" placeholder="Answer"></textarea>
+      <input id="t" placeholder="tags comma separated" style="width:100%"/>
+      <button id="create">Create</button>
+    </div>
+    <h2>Existing FAQs</h2>
+    <table id="list"><thead><tr><th>ID</th><th>Question</th><th>Answer</th><th>Tags</th><th>Actions</th></tr></thead><tbody></tbody></table>
+    <script src="/static/admin.js"></script>
+  </body>
+</html>
