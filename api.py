@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends, Header  # type: ignore
 import os
-from fastapi.responses import HTMLResponse, Response  # type: ignore
+from fastapi.responses import HTMLResponse, Response, FileResponse  # type: ignore
 from fastapi.middleware.cors import CORSMiddleware  # type: ignore
 from fastapi.staticfiles import StaticFiles  # type: ignore
 from pydantic import BaseModel  # type: ignore
@@ -45,7 +45,8 @@ app = FastAPI(title="College FAQ Chatbot API")
 genai = GenAI()
 
 # Serve static browser UI from the `static` folder (chat + admin pages)
-app.mount("/static", StaticFiles(directory="static"), name="static")
+if os.path.isdir("static"):
+    app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 def _check_api_key(x_api_key: str = Header(None)):
@@ -90,6 +91,16 @@ def home():
 def favicon():
         # no favicon provided; return empty success to avoid 404 noise
         return Response(status_code=204)
+
+
+@app.get("/index.html")
+def index_html():
+    return FileResponse("index.html")
+
+
+@app.get("/admin.html")
+def admin_html():
+    return FileResponse("admin.html")
 
 
 @app.get("/health")
